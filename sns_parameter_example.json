@@ -1,0 +1,20 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters" : {
+      "EmailQualquer" : {
+        "Type" : "String",
+        "Description" : "Qualquer descrição"
+      }
+    },
+    "Resources" : {
+        "AlertSNSTopic" : {
+            "Type" : "AWS::SNS::Topic",
+            "Properties" : {
+              "Subscription" :  [{
+                "Endpoint" : { "Ref" : "EmailQualquer"},
+                "Protocol" : "email"
+              }]
+            }
+          }
+      }
+    }
